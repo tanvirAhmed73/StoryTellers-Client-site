@@ -160,7 +160,7 @@ Books</a>
                 </div>
 
                 {/* cart option */}
-                  <div className="flex-none  mr-3">
+                  {/* <div className="flex-none  mr-3">
                       <div className="dropdown dropdown-end">
                           <label tabIndex={0} className="btn btn-ghost btn-circle">
                               <div className="indicator">
@@ -179,7 +179,7 @@ Books</a>
                               </div>
                           </div>
                       </div>
-                  </div>
+                  </div> */}
 
 
                 <NavLink to={'/home'}><a onClick={handleLogout} className="btn bg-red-800 text-white">Sign out</a></NavLink>
