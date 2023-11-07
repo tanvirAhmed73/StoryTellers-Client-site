@@ -28,11 +28,11 @@ const Home = () => {
       {/* 4types of books catagories with `relevant image` and `category name`, `relevant button*/}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  items-center">
 
-        <div className="mt-6 mb-6 card w-96 glass">
+        <div className="mt-6 mb-6 card w-96 h-96 glass">
           <figure>
             <img
               className="w-max"
-              src="https://i.ibb.co/fDb15Kn/Apple-Ericsson.jpg"
+              src="https://images-platform.99static.com//zl1Nd21pjU3F8iVKRTgZ6wFTplY=/467x0:1800x1333/fit-in/500x500/99designs-contests-attachments/138/138098/attachment_138098622"
               alt="Shoes"
             />
           </figure>
@@ -46,11 +46,11 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="mt-6 mb-6 card w-96 glass">
+        <div className="mt-6 mb-6 card h-96 w-96 glass">
           <figure>
             <img
               className="w-max"
-              src="https://i.ibb.co/fDb15Kn/Apple-Ericsson.jpg"
+              src="https://i.pinimg.com/736x/43/1f/9a/431f9a440df813d67b919d5688d48fc5.jpg"
               alt="Shoes"
             />
           </figure>
@@ -64,11 +64,11 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="mt-6 mb-6 card w-96 glass">
+        <div className="mt-6 mb-6 card h-96 w-96 glass">
           <figure>
             <img
               className="w-max"
-              src="https://i.ibb.co/fDb15Kn/Apple-Ericsson.jpg"
+              src="https://img.freepik.com/premium-vector/stem-education-isometric-concept-s-composition-with-book-math-blackboard-formulas-academic-hat-illustration_1284-64012.jpg?w=2000"
               alt="Shoes"
             />
           </figure>
@@ -82,11 +82,11 @@ const Home = () => {
           </div>
         </div>
         
-        <div className="mt-6 mb-6 card w-96 glass">
+        <div className="mt-6 mb-6 card h-96 w-96 glass">
           <figure>
             <img
               className="w-max"
-              src="https://i.ibb.co/fDb15Kn/Apple-Ericsson.jpg"
+              src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/191534280/original/08133e3536fc1393d19d434550e2e4e70c0ace4e/design-book-or-ebook-cover-about-business-marketing-investing-and-technology.jpg"
               alt="Shoes"
             />
           </figure>

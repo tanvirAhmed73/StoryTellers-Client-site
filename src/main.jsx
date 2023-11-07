@@ -20,6 +20,8 @@ import HealthAllBooks from './FrontPageComponent/Categories/HealthAllBooks/Healt
 import ComputerAllBooks from './FrontPageComponent/Categories/ComputerAllBooks/ComputerAllBooks';
 import ScienceAllBooks from './FrontPageComponent/Categories/ScienceAllBooks/ScienceAllBooks';
 import BussinessAllBooks from './FrontPageComponent/Categories/BussinessAllBooks/BussinessAllBooks';
+import Details from './FrontPageComponent/Categories/BookDetailsPage/Details';
+import UpdateProduct from './FrontPageComponent/Categories/UpdateProduct/UpdateProduct';
 
 const router = createBrowserRouter([
   {
@@ -42,10 +44,25 @@ const router = createBrowserRouter([
       {
         path:'/allBook',
         element:<PrivateRoute><AllBook></AllBook></PrivateRoute>,
+        loader: ()=> fetch("http://localhost:5000/book"),
       },
       {
         path:'/borrowedBooks',
         element:<PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>,
+      },
+
+      // details page
+      {
+        path: "/details/:id",
+        element: <Details></Details> ,
+        loader: ()=> fetch("http://localhost:5000/book"),
+      },
+      
+      // updateproduct
+      {
+        path: '/updateproduct/:id',
+        element :  <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute> ,
+        loader: ({params})=> fetch(`http://localhost:5000/book/${params.id}`),        
       },
 
 
@@ -53,19 +70,24 @@ const router = createBrowserRouter([
       {
         path:'/healthAllBooks',
         element:<HealthAllBooks></HealthAllBooks>,
+        loader: ()=> fetch("http://localhost:5000/book"),
       },
       {
         path:'/computerAllBooks',
         element:<ComputerAllBooks></ComputerAllBooks>,
+        loader: ()=> fetch("http://localhost:5000/book"),
       },
       {
         path:'/scienceAllBooks',
         element:<ScienceAllBooks></ScienceAllBooks>,
+        loader: ()=> fetch("http://localhost:5000/book"),
       },
       {
         path:'/bussinessAllBooks',
         element:<BussinessAllBooks></BussinessAllBooks>,
+        loader: ()=> fetch("http://localhost:5000/book"),
       },
+
 
       // login and registration
       {
