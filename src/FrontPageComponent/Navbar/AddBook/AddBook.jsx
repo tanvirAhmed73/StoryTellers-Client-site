@@ -1,3 +1,7 @@
+
+
+import Swal from "sweetalert2";
+
 const AddBook = () => {
 
 
@@ -16,7 +20,7 @@ const AddBook = () => {
     const rating = form.rating.value;
 
     const newBook = {
-        bookName,
+      bookName,
       authorName,
       bookImage,
       quantityOfTheBook,
@@ -25,7 +29,31 @@ const AddBook = () => {
       rating,
     };
 
-    console.log(newBook)
+   
+    // send data to the server
+    fetch(
+      "http://localhost:5000/book",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newBook),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Success!",
+            text: "Book added successfully",
+            icon: "success",
+            confirmButtonText: "Close",
+          });
+        }
+      });
+
+    
   };
 
   return (

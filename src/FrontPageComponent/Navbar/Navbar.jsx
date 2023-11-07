@@ -11,7 +11,7 @@ const Navbar = () => {
     logOut()
     .then(() => {
       // Sign-out successful.
-    }).catch((error) => {
+    }).catch(() => {
       // An error happened.
     });
   }
@@ -70,7 +70,8 @@ Books</a>
           </NavLink>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        {/* <a className="btn btn-ghost normal-case text-xl">Storyteller's</a> */}
+        <img className="w-[150px]" src="https://i.ibb.co/MZ9gV0g/logo-storytellers-removebg-preview.png" alt="" />
       </div>
 
       <div className="navbar-center hidden lg:flex">
