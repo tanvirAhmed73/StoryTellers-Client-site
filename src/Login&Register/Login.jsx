@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useContext, useState } from "react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -34,11 +34,14 @@ const Login = () => {
 
   const {signInUser} = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
   //   login with gmail password handle
   const handleLogin = (e) => {
+    
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+
 
     // reset error
     setLoginError("");
@@ -54,7 +57,17 @@ const Login = () => {
         // Signed in
         setSuccessLogin("Login successfully!");
         e.target.reset();
-        navigate('/home')
+        fetch("http://localhost:5000/jwt",{
+          method : "POST",
+          headers : {
+            "content-type" : "application/json",
+          },
+          body :JSON.stringify({email})
+        })
+        .then((res)=> res.json())
+        .then((data) => console.log(data));
+        // navigate(`${location.state ? location.state : "/"}`);
+
         // ...
       })
       .catch((error) => {

@@ -1,5 +1,6 @@
 
 
+
 import Swal from "sweetalert2";
 
 const AddBook = () => {
@@ -52,7 +53,18 @@ const AddBook = () => {
           });
         }
       });
-
+    // axios.post("http://localhost:5000/book", newBook)
+    // .then((data) => {
+    //     if (data.insertedId) {
+    //       Swal.fire({
+    //         title: "Success!",
+    //         text: "Book added successfully",
+    //         icon: "success",
+    //         confirmButtonText: "Close",
+    //       });
+    //     }
+    //   });
+    
     
   };
 

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -8,19 +8,13 @@ const Home = () => {
         className="hero min-h-screen"
         style={{
           backgroundImage:
-            "url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)",
+            "url(https://timelinecovers.pro/facebook-cover/download/library-facebook-cover.jpg)",
         }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-            <p className="mb-5">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-            <button className="btn btn-primary">Get Started</button>
+            <h1 className="mb-5 text-5xl font-bold">Welcome To The StoryTeller</h1>
           </div>
         </div>
       </div>
@@ -102,6 +96,42 @@ const Home = () => {
 
       
       </div>
+
+        {/* more  books */}
+        <div className="mt-9  pb-28 mx-auto  text-center ">
+            <h1 className=" pt-9 text-4xl font-bold drop-shadow-xl text-black italic ">Another Books</h1>
+            <div  className="grid grid-cols-1 pt-9  justify-center md:grid-cols-2 lg:grid-cols-5">
+                <img className="w-[235px] h-[235px] ml-[90px] md:ml-[70px] lg:ml-1 mt-1" src="https://mrbsemporium.com/wp-content/uploads/2023/03/9780349145167.jpg" alt="" />
+                <img className="w-[235px] h-[235px] ml-[90px] md:ml-[70px] lg:ml-1 mt-1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-LqrXPKZ0hda8Ro8o0FwC2KEhEp94Pvwn9w&usqp=CAU" alt="" />
+                <img className="w-[235px] h-[235px] ml-[90px] md:ml-[70px] lg:ml-1 mt-1" src="https://m.media-amazon.com/images/I/81AgPT+BVhL._AC_UF1000,1000_QL80_.jpg" alt="" />
+                <img className="w-[235px] h-[235px] ml-[90px] md:ml-[70px] lg:ml-1 mt-1" src="https://m.media-amazon.com/images/I/91LB1-eNKpL._AC_UF1000,1000_QL80_.jpg" alt="" />
+                <img className="w-[235px] h-[235px] ml-[90px] md:ml-[70px] lg:ml-1 mt-1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrm_-ZJsGEaLUyhyJHa5LVmuoZYTPxTFrDn2M0BEvBafO7rYc7ofy-efUD56bkC-W4y4c&usqp=CAU" alt="" />
+            </div>
+            <button className="btn mt-4"><NavLink to={'/'}>View More</NavLink></button>
+
+        </div>
+
+
+        {/* banner */}
+      <div className="mt-5">
+        <div
+          className="hero  mx-auto h-80"
+          style={{
+            backgroundImage:
+              "url(https://s26162.pcdn.co/wp-content/uploads/2018/12/bestbookcovers2018.jpg)", 
+          }}
+        >
+          <div className="hero-content text-center text-neutral-content">
+            <div className="max-w-md">
+              <h1 className="mb-5 text-5xl font-bold text-white">Join Us Now</h1>
+              <button className="btn btn-primary">Sign Up</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
   );
 };
