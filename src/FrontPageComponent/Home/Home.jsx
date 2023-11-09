@@ -20,9 +20,9 @@ const Home = () => {
       </div>
 
       {/* 4types of books catagories with `relevant image` and `category name`, `relevant button*/}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5  items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
 
-        <div className="mt-6 mb-6 card w-96 h-96 glass">
+        <div className="mt-6 mb-6 card w-full h-96 glass">
           <figure>
             <img
               className="w-max"
@@ -40,7 +40,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="mt-6 mb-6 card h-96 w-96 glass">
+        <div className="mt-6 mb-6 card h-96 w-full glass">
           <figure>
             <img
               className="w-max"
@@ -58,7 +58,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="mt-6 mb-6 card h-96 w-96 glass">
+        <div className="mt-6 mb-6 card h-96 w-full glass">
           <figure>
             <img
               className="w-max"
@@ -76,7 +76,7 @@ const Home = () => {
           </div>
         </div>
         
-        <div className="mt-6 mb-6 card h-96 w-96 glass">
+        <div className="mt-6 mb-6 card h-96 w-full glass">
           <figure>
             <img
               className="w-max"
