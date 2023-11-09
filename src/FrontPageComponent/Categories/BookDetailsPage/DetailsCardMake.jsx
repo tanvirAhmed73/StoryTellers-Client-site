@@ -1,5 +1,7 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Swal from "sweetalert2";
+// import Book1 from "../../../BookPageRead/BussinessBook/Book1";
+// import { NavLink } from "react-router-dom";
 const DetailsCardMake = ({data}) => {
 
     const {_id, bookName, authorName, bookImage, quantityOfTheBook, description, category, rating} =data;
@@ -46,7 +48,7 @@ const DetailsCardMake = ({data}) => {
     };
     // send data to the server
     fetch(
-      "http://localhost:5000/addborrow",
+      "https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/addborrow",
       {
         method: "POST",
         headers: {
@@ -111,11 +113,7 @@ const DetailsCardMake = ({data}) => {
               </div>
             <button  className="btn ml-6 btn-success">Read</button>                     
         </div>
-        
-
-        
-        
-
+      
       </div>
     </div>
   );

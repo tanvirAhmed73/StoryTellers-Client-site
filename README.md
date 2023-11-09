@@ -1,8 +1,8 @@
-# React + Vite
+Live Link : https://project-eleven-f9486.web.app/
+About my project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1) this is a book store website where a user can borrow the book and read book
+2) responsive wesite
+3) it has login and registration
+4) it has dark and light mode ability 
+5) a login user can add new book if he/she want to

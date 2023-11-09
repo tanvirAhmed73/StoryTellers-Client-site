@@ -44,27 +44,27 @@ const router = createBrowserRouter([
       {
         path:'/allBook',
         element:<PrivateRoute><AllBook></AllBook></PrivateRoute>,
-        
+      
         
       },
       {
         path:'/borrowedBooks',
         element:<PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>,
-        loader: ()=> fetch("http://localhost:5000/addborrow"),
+        loader: ()=> fetch("https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/addborrow"),
       },
 
       // details page
       {
         path: "/details/:id",
         element: <PrivateRoute><Details></Details></PrivateRoute> ,
-        loader: ()=> fetch("http://localhost:5000/book"),
+        loader: ()=> fetch("https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book"),
       },
       
       // updateproduct
       {
         path: '/updateproduct/:id',
         element :  <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute> ,
-        loader: ({params})=> fetch(`http://localhost:5000/book/${params.id}`),        
+        loader: ({params})=> fetch(`https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book/${params.id}`),        
       },
 
 
@@ -72,22 +72,22 @@ const router = createBrowserRouter([
       {
         path:'/healthAllBooks',
         element:<HealthAllBooks></HealthAllBooks>,
-        loader: ()=> fetch("http://localhost:5000/book"),
+        loader: ()=> fetch("https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book"),
       },
       {
         path:'/computerAllBooks',
         element:<ComputerAllBooks></ComputerAllBooks>,
-        loader: ()=> fetch("http://localhost:5000/book"),
+        loader: ()=> fetch("https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book"),
       },
       {
         path:'/scienceAllBooks',
         element:<ScienceAllBooks></ScienceAllBooks>,
-        loader: ()=> fetch("http://localhost:5000/book"),
+        loader: ()=> fetch("https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book"),
       },
       {
         path:'/bussinessAllBooks',
         element:<BussinessAllBooks></BussinessAllBooks>,
-        loader: ()=> fetch("http://localhost:5000/book"),
+        loader: ()=> fetch("https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book"),
       },
 
 

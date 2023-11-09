@@ -58,7 +58,7 @@ const Login = () => {
         // Signed in
         setSuccessLogin("Login successfully!");
         e.target.reset();
-        // fetch("http://localhost:5000/jwt",{
+        // fetch("https://project-eleven-ct2ky6el6-tanvirs-projects-23a7939e.vercel.app/jwt",{
         //   method : "POST",
         //   headers : {
         //     "content-type" : "application/json",
@@ -70,7 +70,7 @@ const Login = () => {
         // // navigate(`${location.state ? location.state : "/"}`);
 
         // // ...
-        axios.post("http://localhost:5000/jwt",
+        axios.post("https://project-eleven-ct2ky6el6-tanvirs-projects-23a7939e.vercel.app/jwt",
         {email},
         {withCredentials:true})
       }).then((res) => console.log(res.data))

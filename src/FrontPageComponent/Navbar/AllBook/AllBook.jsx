@@ -8,9 +8,10 @@ const AllBook = () => {
     const [allBook, setAllBook] = useState([])
 
     useEffect(()=>{
-        axios.get("http://localhost:5000/book",{withCredentials:true})
+        axios.get("https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book")
         .then((res)=> setAllBook(res.data))
     },[allBook])
+    console.log(allBook);
     return (
         <div>
             {

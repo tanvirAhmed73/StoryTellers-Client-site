@@ -33,7 +33,7 @@ const AddBook = () => {
    
     // send data to server
     fetch(
-      "http://localhost:5000/book",
+      "https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book",
       {
         method: "POST",
         headers: {
@@ -52,7 +52,7 @@ const AddBook = () => {
           });
         }
       });
-    // axios.post("http://localhost:5000/book", newBook)
+    // axios.post("https://project-eleven-ct2ky6el6-tanvirs-projects-23a7939e.vercel.app/book", newBook)
     // .then((res) => {
     //     if (res?.insertedId) {
     //       Swal.fire({
