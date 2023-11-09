@@ -40,8 +40,7 @@ const AddBook = () => {
           "content-type": "application/json",
         },
         body: JSON.stringify(newBook),
-      }
-    )
+      })
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
@@ -54,8 +53,8 @@ const AddBook = () => {
         }
       });
     // axios.post("http://localhost:5000/book", newBook)
-    // .then((data) => {
-    //     if (data.insertedId) {
+    // .then((res) => {
+    //     if (res?.insertedId) {
     //       Swal.fire({
     //         title: "Success!",
     //         text: "Book added successfully",
@@ -155,7 +154,7 @@ const AddBook = () => {
                 <input
                   type="text"
                   name="category"
-                  placeholder="example - Novel, Thriller, History, Drama, Sci-Fi"
+                  placeholder="example - health,computer,science,business,e.t.c"
                   className="input input-bordered"
                 />
               </div>

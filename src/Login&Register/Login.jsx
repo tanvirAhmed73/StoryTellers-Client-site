@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../../firebase.init";
 import { AuthContext } from "../../Provider/AuthProvider";
+import axios from "axios";
 
 const Login = () => {
   const [loginError, setLoginError] = useState("");
@@ -57,19 +58,22 @@ const Login = () => {
         // Signed in
         setSuccessLogin("Login successfully!");
         e.target.reset();
-        fetch("http://localhost:5000/jwt",{
-          method : "POST",
-          headers : {
-            "content-type" : "application/json",
-          },
-          body :JSON.stringify({email})
-        })
-        .then((res)=> res.json())
-        .then((data) => console.log(data));
-        // navigate(`${location.state ? location.state : "/"}`);
+        // fetch("http://localhost:5000/jwt",{
+        //   method : "POST",
+        //   headers : {
+        //     "content-type" : "application/json",
+        //   },
+        //   body :JSON.stringify({email})
+        // })
+        // .then((res)=> res.json())
+        // .then((data) => console.log(data));
+        // // navigate(`${location.state ? location.state : "/"}`);
 
-        // ...
-      })
+        // // ...
+        axios.post("http://localhost:5000/jwt",
+        {email},
+        {withCredentials:true})
+      }).then((res) => console.log(res.data))
       .catch((error) => {
         setLoginError(" Gmail & Password Does Not Exist");
       });

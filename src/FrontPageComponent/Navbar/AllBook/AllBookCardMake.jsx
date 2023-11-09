@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { AiTwotoneStar } from 'react-icons/ai';
+import Rating from "react-rating";
 
 const AllBookCardMake = ({book}) => {
     const {_id, bookName, authorName, bookImage, quantityOfTheBook, description, category, rating} =book;
@@ -14,7 +16,13 @@ const AllBookCardMake = ({book}) => {
                 <div className="badge badge-secondary ">{authorName}</div>
                 <div className="badge badge-secondary">{category}</div>
               <div className="card-actions justify-end">
-                <div className="badge badge-outline">Rating {rating}</div>
+                  <Rating
+                  initialRating={book.rating}
+                  emptySymbol={<AiTwotoneStar style={{color: "#ffea00",}} />}
+                  fullSymbol={<AiTwotoneStar style={{color: "#ffea00",}} />}
+                  readonly={true} // Set to true to make it read-only
+                />
+                <p>Rating: {book.rating}</p>
               </div>
             </div>
     
