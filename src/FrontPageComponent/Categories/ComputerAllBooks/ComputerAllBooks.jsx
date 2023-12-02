@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import BooksMakingCard from "../booksMakingCard/BooksMakingCard";
+import useBookLIsting from "../../../Hooks/useBookLIsting";
 
 const ComputerAllBooks = () => {
-    const books = useLoaderData();
+    const [bookListing] = useBookLIsting();
     const categoriesName = "computer";
 
     const [computerCard, setComputerCard] = useState([])
 
     useEffect(()=>{
-      const filterComputer = books.filter(entry => entry.category === "computer");
+      const filterComputer = bookListing.filter(entry => entry.category === "computer");
       setComputerCard(filterComputer);
-    },[books])
+    },[bookListing])
 
   return (
     <div>
@@ -19,7 +19,7 @@ const ComputerAllBooks = () => {
       {
       computerCard.length > 0 ? (
         <div className="mt-9 grid grid-cols-1 lg:grid-cols-2 gap-10 ">
-          {books.map((book) => (
+          {bookListing.map((book) => (
             <BooksMakingCard
               key={book._id}
               categoriesName={categoriesName}

@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import BooksMakingCard from "../booksMakingCard/BooksMakingCard";
+import useBookLIsting from "../../../Hooks/useBookLIsting";
 
 const BussinessAllBooks = () => {
 
-    const books = useLoaderData();
+    const [bookListing] = useBookLIsting();
     const categoriesName = "business";
 
     const [businessCard, setBusinessCard] = useState([])
 
     useEffect(()=>{
-      const filterBusiness = books.filter(entry => entry.category === "business");
+      const filterBusiness = bookListing.filter(entry => entry.category === "business");
       setBusinessCard(filterBusiness);
-    },[books])
+    },[bookListing])
 
   return (
     <div>
@@ -20,7 +20,7 @@ const BussinessAllBooks = () => {
       {
       businessCard.length > 0 ? (
         <div className="mt-9 grid grid-cols-1 lg:grid-cols-2 gap-10 ">
-          {books.map((book) => (
+          {bookListing.map((book) => (
             <BooksMakingCard
               key={book._id}
               categoriesName={categoriesName}

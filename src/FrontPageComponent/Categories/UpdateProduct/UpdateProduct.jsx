@@ -1,10 +1,10 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateProduct = () => {
     const books = useLoaderData();
     const {_id, bookName, authorName, bookImage, quantityOfTheBook, description, category, rating} =books;
-    
+    const naviate= useNavigate();
     const handleUpdateProduct = (e) => {
         e.preventDefault();
     
@@ -28,7 +28,7 @@ const UpdateProduct = () => {
         };
     
         // send data to the server
-        fetch(`https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book/${_id}`, {
+        fetch(`https://project-eleven-server-site.vercel.app/book/${_id}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",
@@ -44,6 +44,7 @@ const UpdateProduct = () => {
                 icon: "success",
                 confirmButtonText: "Close",
               });
+              naviate('/allBook')
             }
           });
       };
@@ -139,13 +140,18 @@ const UpdateProduct = () => {
                 <label className="label">
                   <span className="label-text">Category</span>
                 </label>
-                <input
-                  type="text"
-                  defaultValue={category}
+                {/* Replace the text input with a dropdown/select menu */}
+                <select
                   name="category"
-                  placeholder="example - Novel, Thriller, History, Drama, Sci-Fi"
-                  className="input input-bordered"
-                />
+                  defaultValue={category}
+                  className="select select-bordered"
+                >
+                  <option value="business">Business</option>
+                  <option value="health">Health</option>
+                  <option value="computer">Computer</option>
+                  <option value="science">Science</option>
+                  {/* Add more options as needed */}
+                </select>
               </div>
 
               {/* Rating */}

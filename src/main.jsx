@@ -50,44 +50,48 @@ const router = createBrowserRouter([
       {
         path:'/borrowedBooks',
         element:<PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>,
-        loader: ()=> fetch("https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/addborrow"),
+        // loader: ()=> fetch("https://project-eleven-server-site.vercel.app/addborrow"),
       },
 
       // details page
       {
         path: "/details/:id",
         element: <PrivateRoute><Details></Details></PrivateRoute> ,
-        loader: ()=> fetch("https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book"),
+        loader: ()=> fetch("https://project-eleven-server-site.vercel.app/book"),
+      },
+
+      // read page
+      {
+        path: "/read/:id",
+        element: <PrivateRoute><ReadPage></ReadPage></PrivateRoute> ,
+        loader: ()=> fetch("https://project-eleven-server-site.vercel.app/book"),
       },
       
       // updateproduct
       {
         path: '/updateproduct/:id',
         element :  <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute> ,
-        loader: ({params})=> fetch(`https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book/${params.id}`),        
+        loader: ({params})=> fetch(`https://project-eleven-server-site.vercel.app/book/${params.id}`),        
       },
 
 
       // book categories
       {
         path:'/healthAllBooks',
-        element:<HealthAllBooks></HealthAllBooks>,
-        loader: ()=> fetch("https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book"),
+        element:<PrivateRoute> <HealthAllBooks></HealthAllBooks></PrivateRoute> ,
+        
       },
       {
         path:'/computerAllBooks',
-        element:<ComputerAllBooks></ComputerAllBooks>,
-        loader: ()=> fetch("https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book"),
+        element:<PrivateRoute><ComputerAllBooks></ComputerAllBooks></PrivateRoute>,
       },
       {
         path:'/scienceAllBooks',
-        element:<ScienceAllBooks></ScienceAllBooks>,
-        loader: ()=> fetch("https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book"),
+        element:<PrivateRoute><ScienceAllBooks></ScienceAllBooks></PrivateRoute>,
       },
       {
         path:'/bussinessAllBooks',
-        element:<BussinessAllBooks></BussinessAllBooks>,
-        loader: ()=> fetch("https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book"),
+        element:<PrivateRoute><BussinessAllBooks></BussinessAllBooks></PrivateRoute>,
       },
 
 
@@ -104,11 +108,22 @@ const router = createBrowserRouter([
   },
 ]);
 
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+import ReadBookSummary from './FrontPageComponent/Categories/BookDetailsPage/ReadBookSummary';
+import ReadPage from './FrontPageComponent/Categories/BookDetailsPage/ReadPage';
+
+const queryClient = new QueryClient()
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='max-w-7xl mx-auto'>
       <React.StrictMode>
         <AuthProvider>
-          <RouterProvider router={router} />
+          <QueryClientProvider client={queryClient}>
+            <RouterProvider router={router} />
+          </QueryClientProvider>
         </AuthProvider>
       </React.StrictMode>
   </div>

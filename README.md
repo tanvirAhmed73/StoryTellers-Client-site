@@ -1,4 +1,4 @@
-Live Link : https://project-eleven-f9486.web.app/
+Live Link : https://zingy-lokum-a3f212.netlify.app/
 About my project
 
 1) this is a book store website where a user can borrow the book and read book

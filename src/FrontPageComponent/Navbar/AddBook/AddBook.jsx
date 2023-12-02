@@ -33,7 +33,7 @@ const AddBook = () => {
    
     // send data to server
     fetch(
-      "https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/book",
+      "https://project-eleven-server-site.vercel.app/book",
       {
         method: "POST",
         headers: {

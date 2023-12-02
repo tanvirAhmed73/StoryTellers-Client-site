@@ -1,4 +1,8 @@
+
 import Swal from "sweetalert2";
+import useBookLIsting from "../../../Hooks/useBookLIsting";
+import { useState } from "react";
+import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
 
 // import Swal from "sweetalert2";
 const AddToCardMaking = ({addBook}) => {
@@ -15,8 +19,14 @@ const AddToCardMaking = ({addBook}) => {
         addingDate,
       } = addBook
 
-      const handleDelete = (_id) => {
-        console.log(_id);
+      const[bookListing,refetch]= useBookLIsting();
+      const axiosSecure = UseAxiosSecure();
+      // const [filerBook, setFilterBook] = useState();
+      const handleDelete = (addBook) => {
+        const filteredData = bookListing.filter((book) => book.bookName === addBook.bookname);
+        const id= filteredData[0]._id;
+        const quantity= filteredData[0].quantityOfTheBook + 1;
+        console.log(quantity)
         Swal.fire({
           title: "Are you sure?",
           text: "You won't be able to revert this!",
@@ -27,9 +37,8 @@ const AddToCardMaking = ({addBook}) => {
           confirmButtonText: "Yes, delete it!",
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`https://project-eleven-server-site-cokjhjmwt-tanvirs-projects-23a7939e.vercel.app/addborrow/${_id}`,{
+            fetch(`https://project-eleven-server-site.vercel.app/addborrow/${addBook._id}`,{
               method : "DELETE",
-    
             })
               .then((res) => res.json())
               .then((data) => {
@@ -40,7 +49,15 @@ const AddToCardMaking = ({addBook}) => {
                     'Your product has been deleted.',
                     'success'
                   )
-                  window.location.reload();
+                  
+                  axiosSecure.patch(`/book/${id}`,{quantity})
+                  .then(resQuantity =>{
+                    if(resQuantity.data.modifiedCount > 0){
+                      console.log('quantity up')
+                    }
+                    window.location.reload();
+                    
+                })
                 }
               });
           }
@@ -61,7 +78,7 @@ const AddToCardMaking = ({addBook}) => {
             <h2>CateGory: {cateGory}</h2>
             <h2>Borrowed Date: {addingDate}</h2>
             <h2>Return Date: {returnDate}</h2>
-            <button onClick={() => handleDelete(_id)} className="btn h-[20px] btn-primary">return Button</button>
+            <button onClick={() => handleDelete(addBook)} className="btn h-[20px] btn-primary">return Button</button>
             <div className="card-actions justify-end"></div>
         </div>
         </div>

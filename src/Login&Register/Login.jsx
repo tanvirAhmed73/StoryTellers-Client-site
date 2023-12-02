@@ -35,7 +35,6 @@ const Login = () => {
 
   const {signInUser} = useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation();
   //   login with gmail password handle
   const handleLogin = (e) => {
     
