@@ -1,6 +1,6 @@
 # This is StoryTeller book website
 
-Live site Link: https://zingy-lokum-a3f212.netlify.app/
+Live site Link: https://storytellers-book.netlify.app/
 
 - This website is responsive website
 - this website both client side and serverside
