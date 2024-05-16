@@ -63,7 +63,7 @@ const DetailsCardMake = ({data}) => {
     const quantity= quantityOfTheBook-1
     // send data to the server
     // fetch(
-    //   "https://project-eleven-server-site.vercel.app/addborrow",
+    //   "https://story-tellers-server-site-code.vercel.app/addborrow",
     //   {
     //     method: "POST",
     //     headers: {

@@ -28,7 +28,7 @@ const UpdateProduct = () => {
         };
     
         // send data to the server
-        fetch(`https://project-eleven-server-site.vercel.app/book/${_id}`, {
+        fetch(`https://story-tellers-server-site-code.vercel.app/book/${_id}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",

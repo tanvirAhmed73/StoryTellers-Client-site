@@ -50,28 +50,28 @@ const router = createBrowserRouter([
       {
         path:'/borrowedBooks',
         element:<PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>,
-        // loader: ()=> fetch("https://project-eleven-server-site.vercel.app/addborrow"),
+        // loader: ()=> fetch("https://story-tellers-server-site-code.vercel.app/addborrow"),
       },
 
       // details page
       {
         path: "/details/:id",
         element: <PrivateRoute><Details></Details></PrivateRoute> ,
-        loader: ()=> fetch("https://project-eleven-server-site.vercel.app/book"),
+        loader: ()=> fetch("https://story-tellers-server-site-code.vercel.app/book"),
       },
 
       // read page
       {
         path: "/read/:id",
         element: <PrivateRoute><ReadPage></ReadPage></PrivateRoute> ,
-        loader: ()=> fetch("https://project-eleven-server-site.vercel.app/book"),
+        loader: ()=> fetch("https://story-tellers-server-site-code.vercel.app/book"),
       },
       
       // updateproduct
       {
         path: '/updateproduct/:id',
         element :  <PrivateRoute><UpdateProduct></UpdateProduct></PrivateRoute> ,
-        loader: ({params})=> fetch(`https://project-eleven-server-site.vercel.app/book/${params.id}`),        
+        loader: ({params})=> fetch(`https://story-tellers-server-site-code.vercel.app/book/${params.id}`),        
       },
 
 

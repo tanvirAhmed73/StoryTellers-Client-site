@@ -7,6 +7,7 @@ import { useState } from "react";
 const AllBook = () => {
 
     const [bookListing] = useBookLIsting();
+    console.log(bookListing)
     // const [filteredCategory, setFilteredCategory] = useState(null);
     const [showAllBooks, setShowAllBooks] = useState(true);
 

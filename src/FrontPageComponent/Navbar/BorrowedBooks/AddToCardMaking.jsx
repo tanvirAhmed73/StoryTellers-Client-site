@@ -37,7 +37,7 @@ const AddToCardMaking = ({addBook}) => {
           confirmButtonText: "Yes, delete it!",
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`https://project-eleven-server-site.vercel.app/addborrow/${addBook._id}`,{
+            fetch(`https://story-tellers-server-site-code.vercel.app/addborrow/${addBook._id}`,{
               method : "DELETE",
             })
               .then((res) => res.json())
