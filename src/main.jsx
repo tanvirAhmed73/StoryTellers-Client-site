@@ -6,8 +6,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Layout from './FrontPageComponent/Layout/Layout';
-import Home from './FrontPageComponent/Home/Home';
+import Layout from '../src/Layout/Layout';
+import Home from '../src/Pages/HomePage/Home/Home';
 import Login from './Login&Register/Login';
 import Register from './Login&Register/Register';
 import ErrorPage from './ErrorPage/ErrorPage';

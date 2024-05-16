@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import { NavLink } from "react-router-dom";
-// import { BiSolidUserCircle } from 'react-icons/bi';
 
 const Navbar = () => {
+  const {user, logOut} = useContext(AuthContext);
   const[theme,setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme"): "light");
 
   const handletoogle = (e)=>{
@@ -21,7 +21,6 @@ const Navbar = () => {
     document.querySelector("html").setAttribute("data-theme", localTheme);
   },[theme]);
 
-  const {user, logOut} = useContext(AuthContext);
 
   const handleLogout = () =>{
     logOut()
@@ -48,7 +47,7 @@ const Navbar = () => {
                   
                 </label>
 
-                
+                {/*Navbar Start  */}
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -100,8 +99,10 @@ Books</a>
           </NavLink>
           </ul>
         </div>
-        {/* <a className="btn btn-ghost normal-case text-xl">Storyteller's</a> */}
-        <img className="w-[80px] lg:w-[150px]" src="https://i.ibb.co/MZ9gV0g/logo-storytellers-removebg-preview.png" alt="" />
+        {/* logo */}
+        <NavLink to={'/'}>
+          <img className="w-[80px] lg:w-[150px]" src="https://static.vecteezy.com/system/resources/thumbnails/004/815/526/small_2x/storytelling-word-handwritten-with-custom-calligraphy-creative-word-for-logotype-badge-icon-card-postcard-logo-banner-with-colorful-stars-and-swoosh-illustration-design-vector.jpg" alt="" />
+        </NavLink>
       </div>
 
 
@@ -142,15 +143,6 @@ Books</a>
 
       {/* navbar end section  */}
       <div className="navbar-end">
-
-           
-
-            
-
-
-
-            
-
             {/* user name or email */}
             {
               user? <>
@@ -175,22 +167,6 @@ Books</a>
                       }
                     </div>
                 </label>
-                {/* <ul
-                    tabIndex={0}
-                    className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-                >
-                    <li>
-                    <a className="justify-between">
-                        Profile
-                    </a>
-                    </li>
-                    <li>
-                    <a>Settings</a>
-                    </li>
-                    <li>
-                    <a>Logout</a>
-                    </li>
-                </ul> */}
                 </div>
 
 
@@ -199,7 +175,7 @@ Books</a>
 
                 <NavLink to={'/home'}><a onClick={handleLogout} className="btn bg-red-800 text-white">Sign out</a></NavLink>
             </>
-            : <NavLink to={'/login'}><a className="btn bg-white text-purple-600">Login/Registration</a></NavLink>
+            : <NavLink to={'/login'}><a className="btn bg-white text-purple-600">Login Now</a></NavLink>
           }
 
 
