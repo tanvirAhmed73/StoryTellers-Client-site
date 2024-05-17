@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import DetailsCardMake from "./DetailsCardMake";
+import SharedNAvbar from "../../SharedItem/SharedNavbar/SharedNAvbar";
 const Details = () => {
     const [data, setData] = useState([])
 
@@ -14,6 +15,7 @@ const Details = () => {
     },[id, proDetails]);
     return (
         <div>
+            <SharedNAvbar></SharedNAvbar>
             <DetailsCardMake data= {data}></DetailsCardMake>
         </div>
     );

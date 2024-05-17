@@ -2,9 +2,9 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { useContext, useState } from "react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import auth from "../../firebase.init";
-import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
+import { AuthContext } from "../../Provider/AuthProvider";
+import auth from "../../../firebase.init";
 
 const Login = () => {
   const [loginError, setLoginError] = useState("");

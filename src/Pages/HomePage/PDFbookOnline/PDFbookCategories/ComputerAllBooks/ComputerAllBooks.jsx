@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import BooksMakingCard from "../booksMakingCard/BooksMakingCard";
-import useBookLIsting from "../../../Hooks/useBookLIsting";
-
+import BooksMakingCard from "../../booksMakingCard/BooksMakingCard";
+import useBookLIsting from "../../../../../Hooks/useBookLIsting";
+import SharedNAvbar from "../../../../../SharedItem/SharedNavbar/SharedNAvbar";
 const ComputerAllBooks = () => {
-    const [bookListing] = useBookLIsting();
+    const [bookListing, isLoading] = useBookLIsting();
     const categoriesName = "computer";
 
     const [computerCard, setComputerCard] = useState([])
@@ -13,12 +13,14 @@ const ComputerAllBooks = () => {
       setComputerCard(filterComputer);
     },[bookListing])
 
+    if(isLoading){
+      return <p>"loading"</p>
+    }
+
   return (
     <div>
-
-      {
-      computerCard.length > 0 ? (
-        <div className="mt-9 grid grid-cols-1 lg:grid-cols-2 gap-10 ">
+      <SharedNAvbar></SharedNAvbar>
+        <div className="mt-9 mb-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-5 ">
           {bookListing.map((book) => (
             <BooksMakingCard
               key={book._id}
@@ -27,16 +29,7 @@ const ComputerAllBooks = () => {
             ></BooksMakingCard>
           ))}
         </div>
-      ) : (
-        <div>
-          <img
-            className="w-full h-screen"
-            src="https://evgracias.com/images/no-products.jpg"
-            alt=""
-          />
-        </div>
-      )
-      }
+      
 
 
 

@@ -8,20 +8,12 @@ import {
 } from "react-router-dom";
 import Layout from '../src/Layout/Layout';
 import Home from '../src/Pages/HomePage/Home/Home';
-import Login from './Login&Register/Login';
-import Register from './Login&Register/Register';
 import ErrorPage from './ErrorPage/ErrorPage';
-import AuthProvider from '../Provider/AuthProvider';
-import AddBook from './FrontPageComponent/Navbar/AddBook/AddBook';
-import AllBook from './FrontPageComponent/Navbar/AllBook/AllBook';
-import BorrowedBooks from './FrontPageComponent/Navbar/BorrowedBooks/BorrowedBooks';
+
 import PrivateRoute from './PrivateRoute/PrivateRoute';
-import HealthAllBooks from './FrontPageComponent/Categories/HealthAllBooks/HealthAllBooks';
-import ComputerAllBooks from './FrontPageComponent/Categories/ComputerAllBooks/ComputerAllBooks';
-import ScienceAllBooks from './FrontPageComponent/Categories/ScienceAllBooks/ScienceAllBooks';
-import BussinessAllBooks from './FrontPageComponent/Categories/BussinessAllBooks/BussinessAllBooks';
-import Details from './FrontPageComponent/Categories/BookDetailsPage/Details';
-import UpdateProduct from './FrontPageComponent/Categories/UpdateProduct/UpdateProduct';
+
+import Details from './Pages/BookDetailsPage/Details';
+import UpdateProduct from './Pages/UpdateProduct/UpdateProduct';
 
 const router = createBrowserRouter([
   {
@@ -43,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/allBook',
-        element:<PrivateRoute><AllBook></AllBook></PrivateRoute>,
+        element:<AllBook></AllBook>,
       
         
       },
@@ -111,8 +103,17 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
-import ReadBookSummary from './FrontPageComponent/Categories/BookDetailsPage/ReadBookSummary';
-import ReadPage from './FrontPageComponent/Categories/BookDetailsPage/ReadPage';
+import ReadPage from './Pages/BookDetailsPage/ReadPage';
+import HealthAllBooks from './Pages/HomePage/PDFbookOnline/PDFbookCategories/HealthAllBooks/HealthAllBooks';
+import ComputerAllBooks from './Pages/HomePage/PDFbookOnline/PDFbookCategories/ComputerAllBooks/ComputerAllBooks';
+import ScienceAllBooks from './Pages/HomePage/PDFbookOnline/PDFbookCategories/ScienceAllBooks/ScienceAllBooks';
+import BussinessAllBooks from './Pages/HomePage/PDFbookOnline/PDFbookCategories/BussinessAllBooks/BussinessAllBooks';
+import Login from './Pages/Login/Login';
+import Register from './Pages/Register/Register';
+import AuthProvider from '../src/Provider/AuthProvider';
+import AllBook from './Pages/AllBook/AllBook';
+import AddBook from './FrontPageComponent/Navbar/AddBook/AddBook';
+import BorrowedBooks from './Pages/BorrowedBooks/BorrowedBooks';
 
 const queryClient = new QueryClient()
 

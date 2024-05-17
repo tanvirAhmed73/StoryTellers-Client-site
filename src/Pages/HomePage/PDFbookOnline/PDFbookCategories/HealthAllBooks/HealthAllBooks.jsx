@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import BooksMakingCard from "../booksMakingCard/BooksMakingCard";
-import useBookLIsting from "../../../Hooks/useBookLIsting";
+import BooksMakingCard from "../../booksMakingCard/BooksMakingCard";
+import useBookLIsting from "../../../../../Hooks/useBookLIsting";
+import SharedNAvbar from "../../../../../SharedItem/SharedNavbar/SharedNAvbar";
 const HealthAllBooks = () => {
-    const [bookListing] =useBookLIsting()
+    const [bookListing, isLoading] =useBookLIsting()
     const categoriesName = "health";
 
     const [bookCard, setBookCard] = useState([])
@@ -11,13 +12,14 @@ const HealthAllBooks = () => {
       const filterBook = bookListing.filter(entry => entry.category === "health");
       setBookCard(filterBook);
     },[bookListing])
+    if(isLoading){
+      return <p>"loading"</p>
+    }
 
   return (
     <div>
-
-      {
-      bookCard.length > 0 ? (
-        <div className="mt-9 grid grid-cols-1 lg:grid-cols-2 gap-10 ">
+      <SharedNAvbar></SharedNAvbar>
+        <div className="mt-9 mb-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-5 ">
           {bookListing.map((book) => (
             <BooksMakingCard
               key={book._id}
@@ -26,16 +28,7 @@ const HealthAllBooks = () => {
             ></BooksMakingCard>
           ))}
         </div>
-      ) : (
-        <div>
-          <img
-            className="w-full h-screen"
-            src="https://evgracias.com/images/no-products.jpg"
-            alt=""
-          />
-        </div>
-      )
-      }
+      
 
 
 

@@ -1,4 +1,16 @@
 import React from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { IoBagHandleOutline } from "react-icons/io5";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
+import "./styles.css";
+
+// import required modules
+import { Pagination } from "swiper/modules";
 import Banner from "../Banner/Banner";
 import { Link, NavLink } from "react-router-dom";
 import AudioBookOnline from "../AudioBookOnline/AudioBookOnline";
@@ -10,84 +22,131 @@ const Home = () => {
         <Banner></Banner>
         <AudioBookOnline></AudioBookOnline>
 
-        {/* 4types of books catagories with `relevant image` and `category name`, `relevant button*/}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
-          <div className="mt-6 mb-6 card w-full h-96 glass">
-            <figure>
-              <img
-                className="w-max"
-                src="https://images-platform.99static.com//zl1Nd21pjU3F8iVKRTgZ6wFTplY=/467x0:1800x1333/fit-in/500x500/99designs-contests-attachments/138/138098/attachment_138098622"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Health & Fitness</h2>
-              <div className="card-actions justify-end">
-                <Link to={"/healthAllBooks"}>
-                  <button className="btn btn-primary">Show All Books</button>
-                </Link>
-              </div>
-            </div>
-          </div>
 
-          <div className="mt-6 mb-6 card h-96 w-full glass">
-            <figure>
-              <img
-                className="w-max"
-                src="https://i.pinimg.com/736x/43/1f/9a/431f9a440df813d67b919d5688d48fc5.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Computers & Technology</h2>
-              <div className="card-actions justify-end">
-                <Link to={"/computerAllBooks"}>
-                  <button className="btn btn-primary">Show All Books</button>
-                </Link>
-              </div>
-            </div>
-          </div>
+        {/* PDF BOOK ONLINE */}
+        <div className="mt-11 ml-10">
+            <h1 className='text-2xl'>Pdf Book's</h1>
+            <h2 className='text-xl text-green-600'>Online Store</h2>
+        </div>
+        <div className="mt-10 flex  justify-center">
+          <div className="w-full mx-auto max-w-screen-lg">
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={10}
+              pagination={{
+                clickable: true,
+              }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2,
+                  spaceBetween: 20,
+                },
+                768: {
+                  slidesPerView: 3,
+                  spaceBetween: 40,
+                },
+                1024: {
+                  slidesPerView: 4,
+                  spaceBetween: 50,
+                },
+              }}
+              modules={[Pagination]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <div className="card w-full h-max glass">
+                  <figure className="w-full h-[200px]">
+                    <img
+                      className="w-4"
+                      src="https://images-platform.99static.com//zl1Nd21pjU3F8iVKRTgZ6wFTplY=/467x0:1800x1333/fit-in/500x500/99designs-contests-attachments/138/138098/attachment_138098622"
+                      alt="Shoes"
+                    />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">Health & Fitness</h2>
+                    <div className="card-actions w-full justify-end">
+                      <Link to={"/healthAllBooks"}>
+                        <button className="btn text-white bg-green-600">
+                          Show All Books
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
 
-          <div className="mt-6 mb-6 card h-96 w-full glass">
-            <figure>
-              <img
-                className="w-max"
-                src="https://img.freepik.com/premium-vector/stem-education-isometric-concept-s-composition-with-book-math-blackboard-formulas-academic-hat-illustration_1284-64012.jpg?w=2000"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Science & Math</h2>
-              <div className="card-actions justify-end">
-                <Link to={"/scienceAllBooks"}>
-                  <button className="btn btn-primary">Show All Books</button>
-                </Link>
-              </div>
-            </div>
-          </div>
+              <SwiperSlide>
+                <div className=" card h-96 w-full glass">
+                  <figure className="w-full h-[200px]">
+                    <img
+                      className="w-max"
+                      src="https://i.pinimg.com/736x/43/1f/9a/431f9a440df813d67b919d5688d48fc5.jpg"
+                      alt="Shoes"
+                    />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">Computers & Technology</h2>
+                    <div className="card-actions justify-end">
+                      <Link to={"/computerAllBooks"}>
+                      <button className="btn text-white bg-green-600">
+                          Show All Books
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
 
-          <div className="mt-6 mb-6 card h-96 w-full glass">
-            <figure>
-              <img
-                className="w-max"
-                src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/191534280/original/08133e3536fc1393d19d434550e2e4e70c0ace4e/design-book-or-ebook-cover-about-business-marketing-investing-and-technology.jpg"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Business & Investing</h2>
-              <div className="card-actions justify-end">
-                <Link to={"/bussinessAllBooks"}>
-                  <button className="btn btn-primary">Show All Books</button>
-                </Link>
-              </div>
-            </div>
+              <SwiperSlide>
+                <div className=" card h-96 w-full glass">
+                  <figure className="w-full h-[200px]">
+                    <img
+                      className="w-max"
+                      src="https://img.freepik.com/premium-vector/stem-education-isometric-concept-s-composition-with-book-math-blackboard-formulas-academic-hat-illustration_1284-64012.jpg?w=2000"
+                      alt="Shoes"
+                    />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">Science & Math</h2>
+                    <div className="card-actions justify-end">
+                      <Link to={"/scienceAllBooks"}>
+                      <button className="btn text-white bg-green-600">
+                          Show All Books
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+
+              <SwiperSlide>
+                <div className=" card h-96 w-full glass">
+                  <figure className="w-full h-[200px]">
+                    <img
+                      className="w-max"
+                      src="https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/191534280/original/08133e3536fc1393d19d434550e2e4e70c0ace4e/design-book-or-ebook-cover-about-business-marketing-investing-and-technology.jpg"
+                      alt="Shoes"
+                    />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">Business & Investing</h2>
+                    <div className="card-actions justify-end">
+                      <Link to={"/bussinessAllBooks"}>
+                      <button className="btn text-white bg-green-600">
+                          Show All Books
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            </Swiper>
           </div>
         </div>
 
         {/* more  books */}
         <div className="mt-9  pb-28 mx-auto  text-center ">
-          <h1 className=" pt-9 text-4xl font-bold drop-shadow-xl text-black italic ">
+          <h1 className=" pt-9 text-4xl text-green-600 font-bold drop-shadow-xl  italic ">
             Another Books
           </h1>
           <div className="grid grid-cols-1 pt-9  justify-center md:grid-cols-2 lg:grid-cols-5">
@@ -117,8 +176,8 @@ const Home = () => {
               alt=""
             />
           </div>
-          <button className="btn mt-4">
-            <NavLink to={"/"}>View More</NavLink>
+          <button className="btn mt-4 bg-green-600 text-white">
+            <NavLink to={"/allBook"}>View More</NavLink>
           </button>
         </div>
 
@@ -133,10 +192,12 @@ const Home = () => {
           >
             <div className="hero-content text-center text-neutral-content">
               <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold text-white">
+                <h1 className="mb-5 text-5xl font-bold bg-white mx-4 text-green-600">
                   Join Us Now
                 </h1>
-                <button className="btn btn-primary">Sign Up</button>
+                <NavLink to={'/login'}>
+                  <button className="btn bg-green-600 text-white">Sign Up</button>
+                </NavLink>
               </div>
             </div>
           </div>

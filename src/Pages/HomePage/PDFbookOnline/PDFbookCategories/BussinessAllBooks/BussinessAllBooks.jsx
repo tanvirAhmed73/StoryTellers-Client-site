@@ -1,25 +1,31 @@
 import { useEffect, useState } from "react";
-import BooksMakingCard from "../booksMakingCard/BooksMakingCard";
-import useBookLIsting from "../../../Hooks/useBookLIsting";
+import useBookLIsting from "../../../../../Hooks/useBookLIsting";
+import BooksMakingCard from "../../booksMakingCard/BooksMakingCard";
+import SharedNAvbar from "../../../../../SharedItem/SharedNavbar/SharedNAvbar";
 
 const BussinessAllBooks = () => {
 
-    const [bookListing] = useBookLIsting();
+    const [bookListing, isLoading] = useBookLIsting();
     const categoriesName = "business";
 
     const [businessCard, setBusinessCard] = useState([])
+
+    
 
     useEffect(()=>{
       const filterBusiness = bookListing.filter(entry => entry.category === "business");
       setBusinessCard(filterBusiness);
     },[bookListing])
 
+    if(isLoading){
+      return <p>"loading"</p>
+    }
+
   return (
     <div>
-
-      {
-      businessCard.length > 0 ? (
-        <div className="mt-9 grid grid-cols-1 lg:grid-cols-2 gap-10 ">
+        <SharedNAvbar></SharedNAvbar>
+      
+        <div className="mt-9 mb-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-5 ">
           {bookListing.map((book) => (
             <BooksMakingCard
               key={book._id}
@@ -28,16 +34,7 @@ const BussinessAllBooks = () => {
             ></BooksMakingCard>
           ))}
         </div>
-      ) : (
-        <div>
-          <img
-            className="w-full h-screen"
-            src="https://evgracias.com/images/no-products.jpg"
-            alt=""
-          />
-        </div>
-      )
-      }
+     
 
 
 
