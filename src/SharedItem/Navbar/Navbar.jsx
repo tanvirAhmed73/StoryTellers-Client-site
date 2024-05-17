@@ -93,8 +93,7 @@ const Navbar = () => {
 
           <NavLink to={'/borrowedBooks'}>
             <li>
-              <a>Borrowed
-Books</a>
+              <a>Borrowed Books</a>
             </li>
           </NavLink>
           </ul>
@@ -110,10 +109,10 @@ Books</a>
 
       <div className="navbar-center hidden lg:flex">
         {/*large navbar responsive */}
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal font-bold text-green-600 px-1">
 
           <NavLink to={'/home'}>
-            <li>
+            <li className="">
               <a>Home</a>
             </li>
           </NavLink>

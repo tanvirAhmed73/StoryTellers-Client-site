@@ -1,12 +1,14 @@
 import React from "react";
 import Banner from "../Banner/Banner";
 import { Link, NavLink } from "react-router-dom";
+import AudioBookOnline from "../AudioBookOnline/AudioBookOnline";
 const Home = () => {
   return (
     <div>
       <div>
         {/* banner section */}
         <Banner></Banner>
+        <AudioBookOnline></AudioBookOnline>
 
         {/* 4types of books catagories with `relevant image` and `category name`, `relevant button*/}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">

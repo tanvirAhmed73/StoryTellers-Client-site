@@ -50,7 +50,6 @@ const router = createBrowserRouter([
       {
         path:'/borrowedBooks',
         element:<PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>,
-        // loader: ()=> fetch("https://story-tellers-server-site-code.vercel.app/addborrow"),
       },
 
       // details page
