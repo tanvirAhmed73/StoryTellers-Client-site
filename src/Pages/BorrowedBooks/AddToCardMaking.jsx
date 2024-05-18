@@ -1,7 +1,7 @@
 
 import Swal from "sweetalert2";
-import useBookLIsting from "../../Hooks/useBookLIsting";
 import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
+import UseBorrow from "../../Hooks/UseBorrow";
 
 // import Swal from "sweetalert2";
 const AddToCardMaking = ({addBook}) => {
@@ -18,13 +18,10 @@ const AddToCardMaking = ({addBook}) => {
         addingDate,
       } = addBook
 
-      const[bookListing,refetch]= useBookLIsting();
+      const [borrow, refetch] = UseBorrow()
       const axiosSecure = UseAxiosSecure();
-      // const [filerBook, setFilterBook] = useState();
       const handleDelete = (addBook) => {
-        // const filteredData = bookListing.filter((book) => book.bookName === addBook.bookname);
-        // const id= filteredData[0]._id;
-        // const quantity= filteredData[0].quantityOfTheBook + 1;
+        
         Swal.fire({
           title: "Are you sure?",
           text: "You won't be able to revert this!",
@@ -43,7 +40,7 @@ const AddToCardMaking = ({addBook}) => {
                           'Your book has been removed.',
                           'success'
                         )
-                        window.location.reload();
+                        refetch();
               }
             })
             

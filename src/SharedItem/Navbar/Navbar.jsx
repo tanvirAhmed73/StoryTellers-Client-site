@@ -133,8 +133,8 @@ Books</a>
           </NavLink>
 
           <NavLink to={'/myCart'}>
-            <li>
-              <p className=""><PiShoppingCartSimpleFill />My Cart </p>
+            <li className="">
+              <p className=""><PiShoppingCartSimpleFill />My Cart</p>
             </li>
           </NavLink>
           

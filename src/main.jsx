@@ -38,6 +38,10 @@ const router = createBrowserRouter([
         element:<AllBook></AllBook>,
       },
       {
+        path:'/allAudioBooks',
+        element:<AllAudioBooks></AllAudioBooks>,
+      },
+      {
         path:'/borrowedBooks',
         element:<PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>,
       },
@@ -117,6 +121,7 @@ import AllBook from './Pages/AllBook/AllBook';
 import BorrowedBooks from './Pages/BorrowedBooks/BorrowedBooks';
 import Mycart from './Pages/Mycart/Mycart';
 import AddBook from './Pages/AddBook/AddBook';
+import AllAudioBooks from './Pages/AllAudioBooks/AllAudioBooks';
 
 const queryClient = new QueryClient()
 
