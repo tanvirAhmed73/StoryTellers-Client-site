@@ -7,12 +7,12 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 const AddToCardMaking = ({addBook}) => {
     const {
         _id,
-        bookname,
-        authorname,
-        bookimage,
+        bookName,
+        authorName,
+        bookImage,
         quantityOftheBook,
         descripTion,
-        cateGory,
+        category,
         raTing,
         returnDate,
         addingDate,
@@ -22,10 +22,9 @@ const AddToCardMaking = ({addBook}) => {
       const axiosSecure = UseAxiosSecure();
       // const [filerBook, setFilterBook] = useState();
       const handleDelete = (addBook) => {
-        const filteredData = bookListing.filter((book) => book.bookName === addBook.bookname);
-        const id= filteredData[0]._id;
-        const quantity= filteredData[0].quantityOfTheBook + 1;
-        console.log(quantity)
+        // const filteredData = bookListing.filter((book) => book.bookName === addBook.bookname);
+        // const id= filteredData[0]._id;
+        // const quantity= filteredData[0].quantityOfTheBook + 1;
         Swal.fire({
           title: "Are you sure?",
           text: "You won't be able to revert this!",
@@ -36,49 +35,42 @@ const AddToCardMaking = ({addBook}) => {
           confirmButtonText: "Yes, delete it!",
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`https://story-tellers-server-site-code.vercel.app/addborrow/${addBook._id}`,{
-              method : "DELETE",
+            axiosSecure.delete(`/addborrow/${addBook._id}`)
+            .then(res =>{
+              if(res.data.deletedCount> 0){
+                Swal.fire(
+                          'Deleted!',
+                          'Your book has been removed.',
+                          'success'
+                        )
+                        window.location.reload();
+              }
             })
-              .then((res) => res.json())
-              .then((data) => {
-                console.log(data);
-                if (data.deletedCount > 0) {
-                  Swal.fire(
-                    'Deleted!',
-                    'Your product has been deleted.',
-                    'success'
-                  )
-                  
-                  axiosSecure.patch(`/book/${id}`,{quantity})
-                  .then(resQuantity =>{
-                    if(resQuantity.data.modifiedCount > 0){
-                      console.log('quantity up')
-                    }
-                    window.location.reload();
-                    
-                })
-                }
-              });
+            
           }
         });
       };
 
+      const handleReadBook = ()=>{
+        const bookPDFurl = "https://drive.google.com/file/d/1vXpEuvAsfhOLfipk-zJq49PUNMVk0fRM/view?usp=sharing"
+        window.open(bookPDFurl, '_blank')
+       }
+
     return (
-        <div className="card   card-side bg-base-100 shadow-xl">
-        <figure>
+        <div className="card w-full h-40 md:h-max card-side bg-base-100 shadow-xl">
+        <figure className="mr-3">
             <img
-            className="md:h-[200px] lg:h-[100px]"
-            src={bookimage}
-            alt="Movie"
+            className="w-32  h-32 md:h-max lg:h-max"
+            src={bookImage}
+            alt="book"
             />
         </figure>
-        <div className="card-body">
-            <h2 className="text-lg">{bookname}</h2>
-            <h2>CateGory: {cateGory}</h2>
-            <h2>Borrowed Date: {addingDate}</h2>
-            <h2>Return Date: {returnDate}</h2>
-            <button onClick={() => handleDelete(addBook)} className="btn h-[20px] btn-primary">return Button</button>
-            <div className="card-actions justify-end"></div>
+        <div className="text-right lg:text-left mt-8 mr-3">
+            <h2 className="text-green-600 font-bold">{bookName}</h2>
+            <h2>CateGory: {category}</h2>
+            
+            <button onClick={handleReadBook}  className="btn h-[20px] btn-sm bg-green-600 text-white">Read</button>
+            <button onClick={() => handleDelete(addBook)} className="btn h-[20px] btn-sm bg-red-600 text-white">Delete</button>
         </div>
         </div>
     );

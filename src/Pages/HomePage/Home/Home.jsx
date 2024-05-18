@@ -25,7 +25,7 @@ const Home = () => {
 
         {/* PDF BOOK ONLINE */}
         <div className="mt-11 ml-10">
-            <h1 className='text-2xl'>Pdf Book's</h1>
+            <h1 className='text-2xl'>Free Pdf Book's</h1>
             <h2 className='text-xl text-green-600'>Online Store</h2>
         </div>
         <div className="mt-10 flex  justify-center">

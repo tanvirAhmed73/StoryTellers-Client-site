@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import ReadBookSummary from "./ReadBookSummary";
+import SharedNAvbar from "../../SharedItem/SharedNavbar/SharedNAvbar";
 
 const ReadPage = () => {
     const [data, setData] = useState([])
@@ -14,6 +15,7 @@ const ReadPage = () => {
     },[id, proDetails]);
     return (
         <div>
+            <SharedNAvbar></SharedNAvbar>
              <ReadBookSummary data= {data}></ReadBookSummary>
         </div>
     );

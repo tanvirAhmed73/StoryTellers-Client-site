@@ -5,6 +5,8 @@ import { LuBookUp2 } from "react-icons/lu";
 import { LuBookCopy } from "react-icons/lu";
 import { LuBookPlus } from "react-icons/lu";
 import { IoMdHome } from "react-icons/io";
+import { FaOpencart } from "react-icons/fa";
+import { PiShoppingCartSimpleFill } from "react-icons/pi";
 
 const Navbar = () => {
   const {user, logOut} = useContext(AuthContext);
@@ -115,11 +117,7 @@ const Navbar = () => {
             </li>
           </NavLink>
 
-          <NavLink to={'/addBook'}>
-            <li>
-              <a><LuBookPlus /> Add Book</a>
-            </li>
-          </NavLink>
+          
 
           <NavLink to={'/allBook'}>
             <li>
@@ -131,6 +129,12 @@ const Navbar = () => {
             <li>
               <a><LuBookUp2 /> Borrowed
 Books</a>
+            </li>
+          </NavLink>
+
+          <NavLink to={'/myCart'}>
+            <li>
+              <p className=""><PiShoppingCartSimpleFill />My Cart </p>
             </li>
           </NavLink>
           

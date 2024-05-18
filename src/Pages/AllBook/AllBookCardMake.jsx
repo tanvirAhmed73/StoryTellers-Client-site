@@ -26,9 +26,12 @@ const AllBookCardMake = ({book}) => {
               </div>
             </div>
     
-            <Link to={`/updateproduct/${id}`}>
-              <button className="btn block mx-auto w-full mt-4">Update Now!</button>
+            <Link to={`/details/${id}`}>
+              <button className="btn block bg-green-600 text-white mx-auto w-full mt-4">Detail's</button>
             </Link>
+            {/* <Link to={`/updateproduct/${id}`}>
+              <button className="btn block mx-auto w-full mt-4">Update Now!</button>
+            </Link> */}
 
           </div>
         </div>

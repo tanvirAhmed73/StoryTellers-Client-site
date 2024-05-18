@@ -36,12 +36,14 @@ const router = createBrowserRouter([
       {
         path:'/allBook',
         element:<AllBook></AllBook>,
-      
-        
       },
       {
         path:'/borrowedBooks',
         element:<PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>,
+      },
+      {
+        path:'/myCart',
+        element:<PrivateRoute><Mycart></Mycart></PrivateRoute>,
       },
 
       // details page
@@ -112,8 +114,9 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import AuthProvider from '../src/Provider/AuthProvider';
 import AllBook from './Pages/AllBook/AllBook';
-import AddBook from './FrontPageComponent/Navbar/AddBook/AddBook';
 import BorrowedBooks from './Pages/BorrowedBooks/BorrowedBooks';
+import Mycart from './Pages/Mycart/Mycart';
+import AddBook from './Pages/AddBook/AddBook';
 
 const queryClient = new QueryClient()
 

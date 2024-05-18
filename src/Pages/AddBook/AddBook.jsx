@@ -52,17 +52,7 @@ const AddBook = () => {
           });
         }
       });
-    // axios.post("https://project-eleven-ct2ky6el6-tanvirs-projects-23a7939e.vercel.app/book", newBook)
-    // .then((res) => {
-    //     if (res?.insertedId) {
-    //       Swal.fire({
-    //         title: "Success!",
-    //         text: "Book added successfully",
-    //         icon: "success",
-    //         confirmButtonText: "Close",
-    //       });
-    //     }
-    //   });
+    
     
     
   };
@@ -138,7 +128,7 @@ const AddBook = () => {
                   <span className="label-text">Short description</span>
                 </label>
                 <textarea
-                  className="mt-3 p-3"
+                  className="mt-3 p-3 input input-bordered"
                   name="description"
                   rows="1"
                   cols="50"
@@ -174,7 +164,7 @@ const AddBook = () => {
 
               {/* Add book */}
               <div className="form-control lg:mt-9">
-                <button className="btn btn-primary">Add Book</button>
+                <button className="btn bg-green-600 text-white">Add Book</button>
               </div>
             </form>
           </div>

@@ -5,10 +5,12 @@ import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 import { Link } from "react-router-dom";
 import { IoBagHandleOutline } from "react-icons/io5";
 import { LuBookUp2 } from "react-icons/lu";
+import UseBorrow from "../../Hooks/UseBorrow";
 const DetailsCardMake = ({ data }) => {
   const axiosSecure = UseAxiosSecure();
-
+  const [borrow, refetch] = UseBorrow()
   const {
+    _id: id,
     bookName,
     authorName,
     bookImage,
@@ -17,13 +19,46 @@ const DetailsCardMake = ({ data }) => {
     category,
     rating,
   } = data;
-
-  let id = data._id;
+  
   const { user } = useContext(AuthContext);
   const { displayName, email } = user;
-
-  const handleBorrowBooks =(data)=>{
-    console.log(data)
+  
+  const handleBorrowBooks =()=>{
+    const borrowData = {
+      bookId: id,
+      bookName,
+      authorName,
+      bookImage,
+      quantityOfTheBook,
+      description,
+      category,
+      rating,
+      currentLoggerEmail: user.email
+    };
+    // console.log(borrow)
+    // console.log(borrowData)
+    const isAlreadyBorrowed = borrow.some(borrowedBook => borrowedBook.bookId === borrowData.bookId && borrowedBook?.currentLoggerEmail === borrowData?.currentLoggerEmail);
+    if(!isAlreadyBorrowed){
+      axiosSecure.post('/addborrow',borrowData)
+      .then(res =>{
+        if(res.data.insertedId){
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Your book has been added",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            refetch()
+        }
+      })
+    }else{
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "You Already Added The Book In The List!",
+      });
+    }
   }
 
   return (
@@ -46,10 +81,10 @@ const DetailsCardMake = ({ data }) => {
                 Read Summary
               </button>
             </Link>
-            <button onClick={()=>handleBorrowBooks(data)} className="btn btn-sm mb-3 bg-green-600 text-white">
+            <button onClick={handleBorrowBooks} className="btn btn-sm mb-3 bg-green-600 text-white">
             <LuBookUp2 /> Borrow THE Book
             </button>
-            <button className="btn btn-sm mb-3 bg-green-600 text-white">
+            <button className="btn  btn-sm mb-3 bg-green-600 text-white" disabled>
               <IoBagHandleOutline /> Add To Compare
             </button>
           </div>
