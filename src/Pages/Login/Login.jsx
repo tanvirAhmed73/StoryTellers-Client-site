@@ -10,6 +10,10 @@ const Login = () => {
   const [loginError, setLoginError] = useState("");
   const [successLogin, setSuccessLogin] = useState("");
   const provider = new GoogleAuthProvider();
+  const navigate = useNavigate()
+  const location = useLocation()
+  const from = location.state?.from?.pathname || "/"
+  // console.log(location)
 
   // login with google handle
   const handleGoogleLogin = () =>{
@@ -22,7 +26,7 @@ const Login = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         setSuccessLogin("Login successfully!");
-        navigate('/home')
+        navigate(from)
       })
       .catch((error) => {
         setLoginError("Invalid Gmail Or Password");
@@ -34,7 +38,6 @@ const Login = () => {
 
 
   const {signInUser} = useContext(AuthContext);
-  const navigate = useNavigate();
   //   login with gmail password handle
   const handleLogin = (e) => {
     
@@ -57,22 +60,12 @@ const Login = () => {
         // Signed in
         setSuccessLogin("Login successfully!");
         e.target.reset();
-        // fetch("https://project-eleven-ct2ky6el6-tanvirs-projects-23a7939e.vercel.app/jwt",{
-        //   method : "POST",
-        //   headers : {
-        //     "content-type" : "application/json",
-        //   },
-        //   body :JSON.stringify({email})
-        // })
-        // .then((res)=> res.json())
-        // .then((data) => console.log(data));
-        // // navigate(`${location.state ? location.state : "/"}`);
-
-        // // ...
+        navigate(from)
         axios.post("https://project-eleven-ct2ky6el6-tanvirs-projects-23a7939e.vercel.app/jwt",
         {email},
         {withCredentials:true})
-      }).then((res) => console.log(res.data))
+      })
+      .then((res) => console.log(res.data))
       .catch((error) => {
         setLoginError(" Gmail & Password Does Not Exist");
       });

@@ -37,6 +37,7 @@ const Register = () => {
             form.reset()
             setSuccessRegistration('User create successfully');
             // ...
+            navigate('/')
           })
           .catch((error) => {
             setRegisterError('Gmail Already Used');

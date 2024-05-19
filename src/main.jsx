@@ -75,20 +75,20 @@ const router = createBrowserRouter([
       // book categories
       {
         path:'/healthAllBooks',
-        element:<PrivateRoute> <HealthAllBooks></HealthAllBooks></PrivateRoute> ,
+        element:<HealthAllBooks></HealthAllBooks>,
         
       },
       {
         path:'/computerAllBooks',
-        element:<PrivateRoute><ComputerAllBooks></ComputerAllBooks></PrivateRoute>,
+        element:<ComputerAllBooks></ComputerAllBooks>,
       },
       {
         path:'/scienceAllBooks',
-        element:<PrivateRoute><ScienceAllBooks></ScienceAllBooks></PrivateRoute>,
+        element:<ScienceAllBooks></ScienceAllBooks>,
       },
       {
         path:'/bussinessAllBooks',
-        element:<PrivateRoute><BussinessAllBooks></BussinessAllBooks></PrivateRoute>,
+        element:<BussinessAllBooks></BussinessAllBooks>,
       },
 
 
