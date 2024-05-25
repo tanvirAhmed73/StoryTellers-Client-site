@@ -32,13 +32,13 @@ const AuthProvider = ({children}) => {
     useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth, currentUser=>{
             setUser(currentUser);
-            const email = currentUser?.email
-            if(currentUser){
-                axiosPublic.post('/jwt', {email} , {withCredentials: true})
-                .then(res =>{
-                    console.log(res.data)
-                })
-            } 
+            // const email = currentUser?.email
+            // if(currentUser){
+            //     axiosPublic.post('/jwt', {email} , {withCredentials: true})
+            //     .then(res =>{
+            //         console.log(res.data)
+            //     })
+            // } 
             setLoading(false);
         });
         return ()=>{
