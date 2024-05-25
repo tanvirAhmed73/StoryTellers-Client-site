@@ -19,15 +19,16 @@ const Home = () => {
     <div>
       <div>
         {/* banner section */}
-        <Banner></Banner>
-        <AudioBookOnline></AudioBookOnline>
-
+        <Banner />
+        <AudioBookOnline />
 
         {/* PDF BOOK ONLINE */}
         <div className="mt-11 ml-10">
-            <h1 className='text-2xl'>Free Pdf Book's</h1>
-            <h2 className='text-xl text-green-600'>Online Store</h2>
+          <h1 className="text-2xl">Free Pdf Book's</h1>
+          <h2 className="text-xl text-green-600">Online Store</h2>
         </div>
+
+        {/* pdf books category */}
         <div className="mt-10 flex  justify-center">
           <div className="w-full mx-auto max-w-screen-lg">
             <Swiper
@@ -88,7 +89,7 @@ const Home = () => {
                     <h2 className="card-title">Computers & Technology</h2>
                     <div className="card-actions justify-end">
                       <Link to={"/computerAllBooks"}>
-                      <button className="btn text-white bg-green-600">
+                        <button className="btn text-white bg-green-600">
                           Show All Books
                         </button>
                       </Link>
@@ -110,7 +111,7 @@ const Home = () => {
                     <h2 className="card-title">Science & Math</h2>
                     <div className="card-actions justify-end">
                       <Link to={"/scienceAllBooks"}>
-                      <button className="btn text-white bg-green-600">
+                        <button className="btn text-white bg-green-600">
                           Show All Books
                         </button>
                       </Link>
@@ -132,7 +133,7 @@ const Home = () => {
                     <h2 className="card-title">Business & Investing</h2>
                     <div className="card-actions justify-end">
                       <Link to={"/bussinessAllBooks"}>
-                      <button className="btn text-white bg-green-600">
+                        <button className="btn text-white bg-green-600">
                           Show All Books
                         </button>
                       </Link>
@@ -195,8 +196,10 @@ const Home = () => {
                 <h1 className="mb-5 text-5xl font-bold bg-white mx-4 text-green-600">
                   Join Us Now
                 </h1>
-                <NavLink to={'/login'}>
-                  <button className="btn bg-green-600 text-white">Sign Up</button>
+                <NavLink to={"/login"}>
+                  <button className="btn bg-green-600 text-white">
+                    Sign Up
+                  </button>
                 </NavLink>
               </div>
             </div>

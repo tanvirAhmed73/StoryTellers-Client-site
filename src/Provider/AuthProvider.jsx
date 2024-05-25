@@ -2,12 +2,14 @@ import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPa
 import { createContext, useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import auth from "../../firebase.init";
+import usePublic from "../Hooks/usePublic";
 
 export const AuthContext = createContext(null);
 
 
 
 const AuthProvider = ({children}) => {
+    const axiosPublic = usePublic()
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -30,6 +32,13 @@ const AuthProvider = ({children}) => {
     useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth, currentUser=>{
             setUser(currentUser);
+            const email = currentUser?.email
+            if(currentUser){
+                axiosPublic.post('/jwt', {email} , {withCredentials: true})
+                .then(res =>{
+                    console.log(res.data)
+                })
+            } 
             setLoading(false);
         });
         return ()=>{

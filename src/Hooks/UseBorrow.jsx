@@ -8,7 +8,7 @@ const UseBorrow = () => {
     const {data: borrow = [], refetch} = useQuery({
         queryKey: ['borrow', user?.email],
         queryFn : async ()=>{
-            const res = await axiosSecure.get(`/addborrow`)
+            const res = await axiosSecure.get(`/addborrow?email=${user?.email}`)
             return res.data;
         }
     })

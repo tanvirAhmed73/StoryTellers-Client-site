@@ -21,7 +21,6 @@ const AddToCardMaking = ({addBook}) => {
       const [borrow, refetch] = UseBorrow()
       const axiosSecure = UseAxiosSecure();
       const handleDelete = (addBook) => {
-        
         Swal.fire({
           title: "Are you sure?",
           text: "You won't be able to revert this!",
@@ -33,17 +32,30 @@ const AddToCardMaking = ({addBook}) => {
         }).then((result) => {
           if (result.isConfirmed) {
             axiosSecure.delete(`/addborrow/${addBook._id}`)
-            .then(res =>{
-              if(res.data.deletedCount> 0){
+              .then((res) => {
+                if (res.data.deletedCount > 0) {
+                  Swal.fire(
+                    'Deleted!',
+                    'Your book has been removed.',
+                    'success'
+                  );
+                  refetch();
+                } else {
+                  Swal.fire(
+                    'Error!',
+                    'Failed to delete the book.',
+                    'error'
+                  );
+                }
+              })
+              .catch((error) => {
+                console.error("Error deleting book:", error);
                 Swal.fire(
-                          'Deleted!',
-                          'Your book has been removed.',
-                          'success'
-                        )
-                        refetch();
-              }
-            })
-            
+                  'Error!',
+                  'Failed to delete the book. Please try again later.',
+                  'error'
+                );
+              });
           }
         });
       };

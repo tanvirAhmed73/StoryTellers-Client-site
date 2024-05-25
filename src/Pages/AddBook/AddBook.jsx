@@ -2,9 +2,10 @@
 
 
 import Swal from "sweetalert2";
+import UseAxiosSecure from "../../Hooks/UseAxiosSecure";
 
 const AddBook = () => {
-
+  const axiosSecure = UseAxiosSecure()
 
 
     // add new book event handle button
@@ -30,20 +31,9 @@ const AddBook = () => {
       rating,
     };
 
-   
-    // send data to server
-    fetch(
-      "https://story-tellers-server-site-code.vercel.app/book",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newBook),
-      })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
+    axiosSecure.post('/book', newBook)
+      .then((res) => {
+        if (res.data.insertedId) {
           Swal.fire({
             title: "Success!",
             text: "Book added successfully",

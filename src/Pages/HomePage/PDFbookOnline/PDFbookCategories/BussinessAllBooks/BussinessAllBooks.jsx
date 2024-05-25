@@ -13,12 +13,13 @@ const BussinessAllBooks = () => {
     
 
     useEffect(()=>{
-      const filterBusiness = bookListing.filter(entry => entry.category === "business");
-      setBusinessCard(filterBusiness);
-    },[bookListing])
-
+      if(!isLoading){
+        const filterBook = bookListing.filter(entry => entry.category === "business");
+        setBusinessCard(filterBook);
+      }
+    },[bookListing, isLoading, categoriesName])
     if(isLoading){
-      return <p>"loading"</p>
+      return <p>loading...</p>
     }
 
   return (
@@ -26,7 +27,7 @@ const BussinessAllBooks = () => {
         <SharedNAvbar></SharedNAvbar>
       
         <div className="mt-9 mb-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-5 ">
-          {bookListing.map((book) => (
+          {businessCard.map((book) => (
             <BooksMakingCard
               key={book._id}
               categoriesName={categoriesName}
