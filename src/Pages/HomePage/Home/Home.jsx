@@ -1,7 +1,6 @@
 import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import { IoBagHandleOutline } from "react-icons/io5";
 
 // Import Swiper styles
 import "swiper/css";
@@ -10,10 +9,10 @@ import "swiper/css/pagination";
 import "./styles.css";
 
 // import required modules
-import { Pagination } from "swiper/modules";
-import Banner from "../Banner/Banner";
 import { Link, NavLink } from "react-router-dom";
+import { Pagination } from "swiper/modules";
 import AudioBookOnline from "../AudioBookOnline/AudioBookOnline";
+import Banner from "../Banner/Banner";
 const Home = () => {
   return (
     <div>
@@ -55,7 +54,7 @@ const Home = () => {
               className="mySwiper"
             >
               <SwiperSlide>
-                <div className="card w-full h-max glass">
+                <div className="card h-96 w-full glass">
                   <figure className="w-full h-[200px]">
                     <img
                       className="w-4"
@@ -64,8 +63,8 @@ const Home = () => {
                     />
                   </figure>
                   <div className="card-body">
-                    <h2 className="card-title">Health & Fitness</h2>
-                    <div className="card-actions w-full justify-end">
+                    <h2 className="text-xl font-bold">Health & Fitness</h2>
+                    <div className="">
                       <Link to={"/healthAllBooks"}>
                         <button className="btn text-white bg-green-600">
                           Show All Books
@@ -86,8 +85,10 @@ const Home = () => {
                     />
                   </figure>
                   <div className="card-body">
-                    <h2 className="card-title">Computers & Technology</h2>
-                    <div className="card-actions justify-end">
+                    <h2 className="text-xl font-bold">
+                      Computers & Technology
+                    </h2>
+                    <div className="">
                       <Link to={"/computerAllBooks"}>
                         <button className="btn text-white bg-green-600">
                           Show All Books
@@ -108,8 +109,8 @@ const Home = () => {
                     />
                   </figure>
                   <div className="card-body">
-                    <h2 className="card-title">Science & Math</h2>
-                    <div className="card-actions justify-end">
+                    <h2 className="text-xl font-bold">Science & Math</h2>
+                    <div className="">
                       <Link to={"/scienceAllBooks"}>
                         <button className="btn text-white bg-green-600">
                           Show All Books
@@ -130,8 +131,8 @@ const Home = () => {
                     />
                   </figure>
                   <div className="card-body">
-                    <h2 className="card-title">Business & Investing</h2>
-                    <div className="card-actions justify-end">
+                    <h2 className="text-xl font-bold">Business & Investing</h2>
+                    <div className="">
                       <Link to={"/bussinessAllBooks"}>
                         <button className="btn text-white bg-green-600">
                           Show All Books
@@ -150,29 +151,29 @@ const Home = () => {
           <h1 className=" pt-9 text-4xl text-green-600 font-bold drop-shadow-xl  italic ">
             Another Books
           </h1>
-          <div className="grid grid-cols-1 pt-9  justify-center md:grid-cols-2 lg:grid-cols-5">
+          <div className="grid grid-cols-1 place-items-center pt-9 md:grid-cols-2 lg:grid-cols-5 gap-4">
             <img
-              className="w-[235px] h-[235px] ml-[90px] md:ml-[70px] lg:ml-1 mt-1"
+              className="w-[235px] h-[235px]  mt-1"
               src="https://mrbsemporium.com/wp-content/uploads/2023/03/9780349145167.jpg"
               alt=""
             />
             <img
-              className="w-[235px] h-[235px] ml-[90px] md:ml-[70px] lg:ml-1 mt-1"
+              className="w-[235px] h-[235px]  mt-1"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-LqrXPKZ0hda8Ro8o0FwC2KEhEp94Pvwn9w&usqp=CAU"
               alt=""
             />
             <img
-              className="w-[235px] h-[235px] ml-[90px] md:ml-[70px] lg:ml-1 mt-1"
+              className="w-[235px] h-[235px]  mt-1"
               src="https://m.media-amazon.com/images/I/81AgPT+BVhL._AC_UF1000,1000_QL80_.jpg"
               alt=""
             />
             <img
-              className="w-[235px] h-[235px] ml-[90px] md:ml-[70px] lg:ml-1 mt-1"
+              className="w-[235px] h-[235px]  mt-1"
               src="https://m.media-amazon.com/images/I/91LB1-eNKpL._AC_UF1000,1000_QL80_.jpg"
               alt=""
             />
             <img
-              className="w-[235px] h-[235px] ml-[90px] md:ml-[70px] lg:ml-1 mt-1"
+              className="w-[235px] h-[235px]  mt-1"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrm_-ZJsGEaLUyhyJHa5LVmuoZYTPxTFrDn2M0BEvBafO7rYc7ofy-efUD56bkC-W4y4c&usqp=CAU"
               alt=""
             />

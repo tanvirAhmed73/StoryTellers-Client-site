@@ -6,21 +6,26 @@ import { AuthContext } from "../Provider/AuthProvider";
 import useAudioBooks from "../Hooks/useAudioBooks";
 
 const Layout = () => {
-    const {loading} =useContext(AuthContext)
-    const [audioBooks, isLoading] = useAudioBooks();
+  const { loading } = useContext(AuthContext);
+  const [audioBooks, isLoading] = useAudioBooks();
 
-    if (isLoading || loading) {
-        return <span className="loading loading-dots loading-lg">Loading audio books...</span>;
-    }
-
-    
+  if (isLoading || loading) {
     return (
-        <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
-        </div>
+      <div className="flex items-center justify-center h-screen">
+        <span className="loading loading-dots loading-lg">
+          Loading audio books...
+        </span>
+      </div>
     );
+  }
+
+  return (
+    <div>
+      <Navbar></Navbar>
+      <Outlet></Outlet>
+      <Footer></Footer>
+    </div>
+  );
 };
 
 export default Layout;
